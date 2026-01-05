@@ -1,5 +1,10 @@
-import org.springframework.web.bind.annotation.*;
+package se.jensen.anton.springkoyebtest;
 
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import java.util.ArrayList;
 import java.util.List;
 
 
@@ -7,20 +12,23 @@ import java.util.List;
 @RequestMapping("/tests")
 public class TestController {
 
-    private final TestRepository testRepository;
+    private final List<Test> tests = new ArrayList<>();
 
-    public TestController(TestRepository testRepository) {
-        this.testRepository = testRepository;
-    }
+    public TestController() {
+        Test a = new Test();
+        a.setId(1L);
+        a.setName("First");
+        tests.add(a);
 
-    @PostMapping
-    public Test save(@RequestBody Test test) {
-        return testRepository.save(test);
+        Test b = new Test();
+        b.setId(2L);
+        b.setName("Second");
+        tests.add(b);
     }
 
     @GetMapping
     public List<Test> findAll() {
-        return testRepository.findAll();
+        return tests;
     }
 
 }
