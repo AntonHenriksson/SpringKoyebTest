@@ -25,7 +25,7 @@ jobs:
         id: meta
         uses: docker/metadata-action@v5
         with:
-          images: ${{ secrets.DOCKERHUB_USERNAME }}/spring-boot-app
+          images: ${{ secrets.DOCKERHUB_USERNAME }}/koyotest-app
           tags: |
             type=ref,event=branch
             type=sha
