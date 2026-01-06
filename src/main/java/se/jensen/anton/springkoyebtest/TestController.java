@@ -24,6 +24,12 @@ public class TestController {
         b.setId(2L);
         b.setName("Second");
         tests.add(b);
+
+
+        Test c = new Test();
+        c.setId(3L);
+        c.setName("Third");
+        tests.add(c);
     }
 
     @GetMapping
